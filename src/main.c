@@ -7,7 +7,6 @@ int main() {
     Task tasks[MAX_TASKS];   // Fixed-size array to store tasks
     int task_count = 0;
     int option = 0;         // User menu choice
-    int option1 = 0;
 
     while (option != 9) {
         // Simple menu prompt
@@ -42,7 +41,7 @@ int main() {
                 scanf("%d", &option);
                 clear_input_buffer();
 
-                if (option >= 0 && option1 < task_count) {
+                if (option >= 0 && option < task_count) {
                     puts("Task details:");
                     printf("ID: %d\n", tasks[option].id);
                     printf("Title: %s\n", tasks[option].title);

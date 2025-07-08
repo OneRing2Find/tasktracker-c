@@ -25,7 +25,7 @@ void add_task(Task *tasks, int *task_count) {
         // Prompt user for the task title and read input safely
         printf("%s", "Insert the title: ");
         fgets(title, TITLE_LENGTH, stdin);
-        title[strcspn(title, "\n")] = 0; // Remove trailing newline character
+        title[strcspn(title, "\n")] = 0;
 
         puts("");
 
@@ -44,18 +44,18 @@ void add_task(Task *tasks, int *task_count) {
             continue;
         }
 
-        clear_input_buffer(); // Clear any extra input from buffer
+        clear_input_buffer();
 
         if (choice == 1) {
             // Populate the next available task slot
             tasks[*task_count].id = *task_count + 1;
             strncpy(tasks[*task_count].title, title, TITLE_LENGTH);
-            tasks[*task_count].title[TITLE_LENGTH - 1] = '\0'; // Ensure null termination
+            tasks[*task_count].title[TITLE_LENGTH - 1] = '\0';
             strncpy(tasks[*task_count].description, description, MAX_LENGTH);
-            tasks[*task_count].description[MAX_LENGTH - 1] = '\0'; // Ensure null termination
+            tasks[*task_count].description[MAX_LENGTH - 1] = '\0';
             tasks[*task_count].status = TODO;
 
-            // Increment the task count after successful addition
+            // Increment the task count after successful
             (*task_count)++;
             puts("Saved");
             break;
